@@ -1,49 +1,52 @@
-# Herndon-GovCon-Security-Baselines
-### Automated NIST 800-171 Compliance & Hardening for Windows 11
+# NIST 800-171 AWS Compliance Labs
 
-**Project Status:** `Active` | **Compliance Standard:** `NIST SP 800-171 Rev 2` | **Integrity:** `Signed (PKI)`
+Hands-on implementation of NIST 800-171 security controls in AWS.
 
----
-
-### 🛡️ Project Overview
-This repository contains a technical implementation of **NIST SP 800-171** security controls for a Windows 11 endpoint. The project moves beyond theoretical compliance by using **cryptographically signed PowerShell automation** to enforce, audit, and validate security baselines required for handling **Controlled Unclassified Information (CUI)**.
-
-Unlike standard hardening scripts, this solution implements a **local Public Key Infrastructure (PKI)** chain-of-trust. All automation tools are digitally signed, and the execution environment is locked down to **AllSigned** to prevent the execution of unauthorized or tampered code, satisfying **NIST SI-7 (Software Integrity)** requirements.
+**Author**: [Your Name]  
+**Status**: In Progress (1/4 labs complete)  
+**Certification**: CompTIA Security+ (Dec 2025)
 
 ---
 
-### 🚀 Key Technical Features
+## Overview
 
-* **Script Integrity & PKI (SI-7):**
-    * Implemented a self-hosted Root CA and Code Signing Certificate.
-    * Enforced `Set-ExecutionPolicy AllSigned` to block untrusted code.
-    * Managed certificate trust stores (`Trusted Root`, `Trusted Publishers`) to establish a valid chain of trust.
+This repository documents my implementation of NIST 800-171 compliance controls in AWS, demonstrating cloud security automation and audit readiness.
 
-* **Automated Hardening (AC-2, AC-17):**
-    * **Account Management:** Automated disabling of the built-in Guest account and removal of unauthorized local administrators.
-    * **Attack Surface Reduction:** hardened Local Security Policies (LSP) to restrict non-essential services.
-
-* **Audit & Accountability (AU-2, AU-6):**
-    * **Granular Logging:** Configured `auditpol` to capture Logon/Logoff (Success/Failure) and Privilege Use events.
-    * **Compliance Trails:** Scripts generate custom Event Log entries (Source: `ComplianceScript`, Event ID: `101`) to provide an immutable record of configuration changes.
-
-* **Hardware Root of Trust (SI-7(9)):**
-    * **Firmware Auditing:** Automated validation of **TPM 2.0** readiness and **UEFI Secure Boot** status.
-    * **Boot Integrity:** Verifies that the OS boot loader has not been tampered with prior to loading the kernel.
+**Final Goal**: Achieve 80%+ NIST 800-171 compliance in greenfield AWS account
 
 ---
 
-### 📂 Repository Structure
+## Labs Completed
 
-```text
-.
-├── 📂 Scripts/               # Signed PowerShell Automation (.ps1)
-│   ├── audithardening.ps1    # Enforces AC-2 and AU-2 controls
-│   └── secureboot.ps1        # Validates TPM 2.0 and Secure Boot status
-│
-├── 📂 Documentation/         # Compliance Artifacts
-│   └── System_Security_Plan.pdf  # NIST 800-171 SSP documenting control implementation
-│
-└── 📂 Evidence/              # Verification Artifacts
-    ├── valid_signature.png   # Proof of PKI code signing
-    └── event_log_audit.png   # Proof of generated audit trails
+### ✅ Lab 1: AWS Config (52% Compliance)
+- Deployed AWS Config recorder with NIST 800-171 conformance pack
+- Remediated S3 security violations (versioning, SSL, logging)
+- Configured IAM password policy for credential management
+- **Result**: 38.7% → 52% compliance (+13.3 points)
+
+[View Lab 1 Details →](./lab1-aws-config)
+
+---
+
+## Labs Planned
+
+- 🔄 **Lab 2**: IAM Permission Boundaries (AC-6 Least Privilege)
+- 🔄 **Lab 3**: AWS KMS (SC-12/SC-13 Encryption Key Management)
+- 🔄 **Lab 4**: CloudTrail (AU-2/AU-3/AU-12 Audit Logging)
+
+---
+
+## Skills Demonstrated
+
+- Cloud compliance automation (AWS Config, conformance packs)
+- NIST control mapping (AU-9, SC-8, SC-28, IA-5)
+- Infrastructure scripting (AWS CLI, bash)
+- Security documentation for audit readiness
+
+---
+
+## Contact
+
+- **LinkedIn**: [https://linkedin.com/in/ubayd-sarfraz]
+- **Email**: [ubaydspro@gmail.com]
+- **University**: George Mason University (Graduating May 2027)
