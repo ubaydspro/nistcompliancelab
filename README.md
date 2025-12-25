@@ -2,7 +2,7 @@
 
 Hands-on implementation of NIST 800-171 security controls in AWS.
 
-**Author**: [Your Name]  
+**Author**: Ubayd Sarfraz
 **Status**: In Progress (1/4 labs complete)  
 **Certification**: CompTIA Security+ (Dec 2025)
 
@@ -50,3 +50,4 @@ This repository documents my implementation of NIST 800-171 compliance controls 
 - **LinkedIn**: [https://linkedin.com/in/ubayd-sarfraz]
 - **Email**: [ubaydspro@gmail.com]
 - **University**: George Mason University (Graduating May 2027)
+
